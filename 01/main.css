@@ -1,0 +1,103 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    align-items: center;
+    gap: 10px;
+
+    background-color: antiquewhite;
+    border-radius: 15px;
+
+    grid-area: a;
+}
+
+.header img {
+    width: 75px;
+    height: 75px;
+
+    padding: 15px;
+}
+
+.meny {
+    grid-area: b;
+    border-radius: 15px;
+    padding-right: 35px;
+
+    background-color: #d3d3d3;
+}
+
+.meny button {
+    margin-left: 25px;
+}
+
+.innhold {
+    grid-area: c;
+    overflow: scroll;
+}
+
+.innhold h2 {
+    font-family: monospace;
+}
+
+.innlegg {
+    display: flex;
+    flex-direction: column;
+    background-image: url("edna.png");
+    border-radius: 5px;
+    margin: 5px;
+    color:#f0f8ff;
+}
+
+.innlegg button {
+    width: 50%;
+    margin: 40px;
+}
+
+.innlegg img {
+    max-width: 100%;
+    justify-self: center;
+    margin: 20px;
+}
+.innlegg p {
+    margin-left: 20px;
+}
+
+.footer {
+    font-family: Impact, sans-serif;
+    border: solid 1px red;
+    grid-area: d;
+    text-align: center;
+}
+
+body {
+    display: grid;
+    gap: 5px;
+}
+
+@media (min-width: 641px) {
+    body {
+        grid-template:
+            'a a'
+            'b c'
+            'd d';
+    }
+
+    #høytbilde {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        grid-template:
+            'a'
+            'b'
+            'c'
+            'd';
+    }
+
+    #bredtbilde {
+        display: none;
+    }
+}
