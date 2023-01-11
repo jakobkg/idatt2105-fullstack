@@ -1,4 +1,4 @@
-.header {
+header {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -12,7 +12,7 @@
     grid-area: a;
 }
 
-.header img {
+header img {
     width: 75px;
     height: 75px;
 
@@ -25,10 +25,6 @@
     padding-right: 35px;
 
     background-color: #d3d3d3;
-}
-
-.meny button {
-    margin-left: 25px;
 }
 
 .innhold {
