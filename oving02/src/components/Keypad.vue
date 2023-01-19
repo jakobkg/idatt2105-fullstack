@@ -1,18 +1,12 @@
-<script setup>
+<script lang="ts">
 import Numbers from './Numbers.vue';
-import Operations from './Operations.vue';
+export default {
+    components: {
+        Numbers
+    }
+}
 </script>
 
 <template>
-    <div class="keypad">
-        <Numbers />
-        <Operations />
-    </div>
+    <Numbers />
 </template>
-
-<style scoped>
-.keypad {
-    display: flex;
-    width: 100%;
-}
-</style>

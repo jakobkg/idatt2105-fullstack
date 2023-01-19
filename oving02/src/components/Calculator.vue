@@ -1,13 +1,17 @@
-<script setup>
+<script lang="ts">
 import Display from './Display.vue';
 import Keypad from './Keypad.vue';
+export default {
+    components: {
+    Keypad,
+    Display
+}
+}
 </script>
 
 <template>
-    <div class="calculator">
-        <Display />
-        <Keypad />
-    </div>
+    <Display />
+    <Keypad />
 </template>
 
 <style>

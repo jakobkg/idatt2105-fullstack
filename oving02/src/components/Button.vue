@@ -1,21 +1,24 @@
-<script setup>
-const props = defineProps({
-    tekst: {
-        type: String,
-        required: true
+<script lang="ts">
+import type { PropType } from 'vue';
+
+export default {
+    props: {
+        value: {
+            type: String,
+            required: true
+        },
+        callback: {
+            type: Function as PropType<((payload: MouseEvent) => void)>,
+            required: true
+        }
     }
-});
+}
 </script>
 
 <template>
-    <button>{{ tekst }}</button>
+    <button @click="callback">{{ value }}</button>
 </template>
 
 <style>
-button {
-    background-color: aqua;
-    min-width: 3em;
-    height: 2em;
-    border-radius: 3px;
-}
+
 </style>
