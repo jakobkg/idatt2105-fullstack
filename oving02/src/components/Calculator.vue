@@ -1,19 +1,28 @@
 <script lang="ts">
 import Display from './Display.vue';
 import Keypad from './Keypad.vue';
+import History from './History.vue'
+
 export default {
     components: {
-    Keypad,
-    Display
-}
+        Keypad,
+        Display,
+        History
+    }
 }
 </script>
 
 <template>
-    <Display />
-    <Keypad />
+    <div class="calculator">
+        <Display />
+        <Keypad />
+    </div>
+    <History />
 </template>
 
-<style>
-
+<style lang="scss">
+.calculator {
+    display: flex;
+    flex-direction: column;
+}
 </style>

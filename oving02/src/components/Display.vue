@@ -1,10 +1,11 @@
 <script lang="ts">
 import { useDisplayStore } from '@/stores/display';
 import { mapState } from 'pinia';
+
 export default {
-computed: {
-    ...mapState(useDisplayStore, ['data'])
-}
+    computed: {
+        ...mapState(useDisplayStore, ['data'])
+    }
 }
 </script>
 
@@ -15,5 +16,7 @@ computed: {
 <style scoped lang="scss">
 input {
     text-align: right;
+    width: 100%;
+    padding: 0;
 }
 </style>

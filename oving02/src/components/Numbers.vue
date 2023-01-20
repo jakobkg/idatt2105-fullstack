@@ -1,6 +1,7 @@
 <script lang="ts">
 import Button from './Button.vue';
 import { useDisplayStore } from '@/stores/display';
+import { mapActions } from 'pinia';
 
 export default {
     data() {
@@ -12,9 +13,7 @@ export default {
         Button
     },
     methods: {
-        insert(symbol: string) {
-            useDisplayStore().insert(symbol);
-        }
+        ...mapActions(useDisplayStore, ['insert'])
     }
 }
 </script>
