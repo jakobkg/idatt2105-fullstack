@@ -13,15 +13,21 @@ export default {
 
 <template>
     <div class="entry">
-        <div>{{ entry.expression }} = {{ entry.result }}</div>
+        <div class="expression">{{ entry.expression }}</div>
+        <div class="result">{{ entry.result }}</div>
     </div>
 </template>
 
-<style>
+<style lang="scss">
 .entry {
-    width: max-content;
-    height: 1.5em;
-    max-height: 1.5em;
-    overflow: hidden;
+    width: 100%;
+}
+
+.result {
+    text-align: right;
+}
+
+.result::before {
+    content: "= ";
 }
 </style>

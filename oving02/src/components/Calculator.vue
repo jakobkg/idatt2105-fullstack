@@ -2,6 +2,7 @@
 import Display from './Display.vue';
 import Keypad from './Keypad.vue';
 import History from './History.vue'
+import "@fontsource/chivo-mono"
 
 export default {
     components: {
@@ -21,8 +22,15 @@ export default {
 </template>
 
 <style lang="scss">
-.calculator {
-    display: flex;
-    flex-direction: column;
+main {
+    font-family: "Chivo Mono", monospace;
+}
+
+button {
+    font: inherit;
+}
+
+input {
+    font: inherit;
 }
 </style>

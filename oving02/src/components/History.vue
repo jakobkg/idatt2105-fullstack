@@ -19,13 +19,9 @@ export default {
     </div>
 </template>
 
-<style>
+<style scoped>
 .history {
-    width: max-content;
-    display: flex;
-    flex-direction: column;
-
-    margin: 5px;
+    width: 200px;
 }
 
 .darker {
