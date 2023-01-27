@@ -1,37 +1,3 @@
 {
-  "feedback": [
-    {
-      "id": 1
-    },
-    {
-      "name": "f",
-      "email": "a",
-      "message": "s",
-      "id": 2
-    },
-    {
-      "name": "a",
-      "email": "f",
-      "message": "a",
-      "id": 3
-    },
-    {
-      "name": "f",
-      "email": "asdf",
-      "message": "fdf",
-      "id": 4
-    },
-    {
-      "name": "f",
-      "email": "a",
-      "message": "f",
-      "id": 5
-    },
-    {
-      "name": "asdf",
-      "email": "mail@mail.mail",
-      "message": "fdf",
-      "id": 6
-    }
-  ]
+  "feedback": []
 }

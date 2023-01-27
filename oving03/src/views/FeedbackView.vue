@@ -14,6 +14,7 @@ export default {
             return this.name.trim().length > 0
                 && this.email.trim().length > 0
                 && this.feedback.trim().length > 0
+                && this.verifyEmail
         },
         verifyEmail(): boolean {
             const at_split = this.email.split('@');
