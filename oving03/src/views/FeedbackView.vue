@@ -40,11 +40,6 @@ export default {
         submit(_: MouseEvent): void {
             this.processing = true;
 
-            if (!this.verifyEmail) {
-                this.processing = false;
-                return;
-            }
-
             const payload = JSON.stringify({ name: this.name, email: this.email, message: this.feedback });
 
             fetch(import.meta.env.VITE_BACKEND_URL + "/feedback", {
@@ -56,11 +51,11 @@ export default {
                 this.email = "";
                 this.feedback = "";
                 this.received = true;
+                this.processing = false;
             }, (reason) => {
                 console.warn(reason);
+                this.processing = false;
             });
-
-            this.processing = false;
         }
     }
 }
