@@ -1,15 +1,17 @@
 <script lang="ts">
+import { useFeedbackStore } from '@/stores/feedback';
+import { mapWritableState } from 'pinia';
+
 export default {
     data: () => {
         return {
-            name: "",
-            email: "",
             feedback: "",
             processing: false,
             received: false
         }
     },
     computed: {
+        ...mapWritableState(useFeedbackStore, ['name', 'email']),
         allFilled(): boolean {
             return this.name.trim().length > 0
                 && this.email.trim().length > 0
@@ -40,15 +42,17 @@ export default {
         submit(_: MouseEvent): void {
             this.processing = true;
 
-            const payload = JSON.stringify({ name: this.name, email: this.email, message: this.feedback });
+            const payload = JSON.stringify({
+                name: this.name,
+                email: this.email,
+                message: this.feedback
+            });
 
             fetch(import.meta.env.VITE_BACKEND_URL + "/feedback", {
                 headers: { 'content-type': 'application/json' },
                 method: "POST",
                 body: payload
             }).then((_: Response) => {
-                this.name = "";
-                this.email = "";
                 this.feedback = "";
                 this.received = true;
                 this.processing = false;

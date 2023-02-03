@@ -9,4 +9,5 @@ import Calculator from '../components/Calculator.vue'
 </template>
 
 <style scoped>
+
 </style>

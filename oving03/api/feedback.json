@@ -1,3 +1,22 @@
 {
-  "feedback": []
+  "feedback": [
+    {
+      "name": "lkjh",
+      "email": "hfhf@mail.no",
+      "message": "jfjfjfjfjf",
+      "id": 1
+    },
+    {
+      "name": "jakob",
+      "email": "jakob@jakob.jakob",
+      "message": "2 pluss tre er ikke fem!!!!!",
+      "id": 2
+    },
+    {
+      "name": "jakob",
+      "email": "lkashdf@aløsdjf.lkuashdf",
+      "message": "sick navbar",
+      "id": 3
+    }
+  ]
 }
