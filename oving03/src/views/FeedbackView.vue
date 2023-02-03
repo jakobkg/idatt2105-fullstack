@@ -1,13 +1,13 @@
 <script lang="ts">
 import { useFeedbackStore } from '@/stores/feedback';
 import { mapWritableState } from 'pinia';
+import axios from "axios";
 
 export default {
     data: () => {
         return {
             feedback: "",
-            processing: false,
-            received: false
+            statusmessage: "",
         }
     },
     computed: {
@@ -40,26 +40,17 @@ export default {
     },
     methods: {
         submit(_: MouseEvent): void {
-            this.processing = true;
-
-            const payload = JSON.stringify({
+            axios.post("http://localhost:3000/feedback", {
                 name: this.name,
                 email: this.email,
-                message: this.feedback
-            });
-
-            fetch(import.meta.env.VITE_BACKEND_URL + "/feedback", {
-                headers: { 'content-type': 'application/json' },
-                method: "POST",
-                body: payload
-            }).then((_: Response) => {
-                this.feedback = "";
-                this.received = true;
-                this.processing = false;
-            }, (reason) => {
-                console.warn(reason);
-                this.processing = false;
-            });
+                feedback: this.feedback
+            }).then(response => {
+                if (response.status >= 200 && response.status < 300) {
+                    this.statusmessage = "Takk for din tilbakemelding";
+                }
+            }).catch((reason) => {
+                this.statusmessage = "Noe gikk galt ved levering, serveren sa: " + reason;
+            })
         }
     }
 }
@@ -77,8 +68,8 @@ export default {
             <label for="feedback">Melding</label>
             <textarea id="feedback" v-model="feedback" placeholder="Din tilbakemelding" rows="5" cols="25" />
         </form>
-        <button v-bind:disabled="!allFilled || processing" @click="submit">Send</button>
-        <p v-bind:style="!received ? { 'display': 'none' } : {}">Takk!</p>
+        <button v-bind:disabled="!allFilled" @click="submit">Send</button>
+        <p>{{ statusmessage }}</p>
     </main>
 </template>
 
