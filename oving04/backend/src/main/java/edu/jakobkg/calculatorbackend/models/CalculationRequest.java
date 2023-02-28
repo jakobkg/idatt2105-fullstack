@@ -1,5 +1,3 @@
 package edu.jakobkg.calculatorbackend.models;
 
-public record CalculationRequest(float[] operands, char operator) {
-    
-}
+public record CalculationRequest(String expression) {}

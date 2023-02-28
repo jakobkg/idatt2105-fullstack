@@ -1,3 +1,3 @@
 package edu.jakobkg.calculatorbackend.models;
 
-public record CalculationResult(Float result, String status) {}
+public record CalculationResult(Double result, String status) {}
