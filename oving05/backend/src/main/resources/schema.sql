@@ -1,7 +1,4 @@
-drop table if exists calculations;
-drop table if exists users;
-
-CREATE TABLE calculations (
+CREATE TABLE if not exists calculations (
     ID INTEGER auto_increment, 
     username VARCHAR(128) NOT NULL, 
     expression VARCHAR(128) NOT NULL,
@@ -9,7 +6,7 @@ CREATE TABLE calculations (
     primary key(ID)
 );
 
-create table users (
+create table if not exists users (
     username varchar(255) not null,
     password varchar(255)
 );

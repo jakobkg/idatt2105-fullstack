@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import edu.jakobkg.calculatorbackend.DAO.DBWrapper;
-import edu.jakobkg.calculatorbackend.Model.Calculation;
 import edu.jakobkg.calculatorbackend.Model.CalculationHistory;
 
 @RestController
@@ -18,18 +17,19 @@ import edu.jakobkg.calculatorbackend.Model.CalculationHistory;
 @EnableAutoConfiguration
 @CrossOrigin
 public class CalculationHistoryController {
-    
+    /**
+     * Henter kalkulatorloggen til en bruker fra databasen
+     * @param username - brukeren hvis logg skal hentes
+     * @return - den hentede loggen
+     */
     @GetMapping(value = "/{username}")
     public CalculationHistory getHistory(@PathVariable("username") String username) {
         DBWrapper db;
         try {
             db = new DBWrapper(DBWrapper.createConnection());
 
-            CalculationHistory history = db.getHistory(username);
-
-            return history;
+            return db.getHistory(username);
         } catch (Exception e) {
-            System.out.println(e);
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
